@@ -183,7 +183,25 @@ Result: Task created with 4 images
      "mcpServers": {
        "image-generation": {
          "command": "node",
-         "args": ["/absolute/path/to/mcp_build/dist/index.js"],
+         "args": ["dist/index.js"],
+         "cwd": "/path/to/mcp_build",
+         "env": {
+           "IMAGE_API_URL": "...",
+           "USER_OPENID": "..."
+         }
+       }
+     }
+   }
+   ```
+   
+   或使用 npm script:
+   ```json
+   {
+     "mcpServers": {
+       "image-generation": {
+         "command": "npm",
+         "args": ["run", "start"],
+         "cwd": "/path/to/mcp_build",
          "env": {
            "IMAGE_API_URL": "...",
            "USER_OPENID": "..."

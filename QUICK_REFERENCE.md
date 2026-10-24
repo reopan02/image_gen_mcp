@@ -67,12 +67,51 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 ### Claude Desktop / Cline
 
+**方式 1: 使用 cwd (推荐)**
+
 ```json
 {
   "mcpServers": {
     "image-generation": {
       "command": "node",
-      "args": ["/Users/reo/coding/mcp_build/dist/index.js"],
+      "args": ["dist/index.js"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+**方式 2: 使用 npm script**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "npm",
+      "args": ["run", "start"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+**方式 3: 使用 npx + tsx (无需 build)**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "npx",
+      "args": ["-y", "tsx", "src/index.ts"],
+      "cwd": "/path/to/mcp_build",
       "env": {
         "IMAGE_API_URL": "https://your-api-url.com",
         "USER_OPENID": "your-user-openid"

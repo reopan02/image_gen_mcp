@@ -117,16 +117,29 @@ USER_OPENID=your-user-openid
 
 ### MCP Client Configuration
 
+#### Quick Config Generator
+
+Run the config generator to get the correct configuration for your environment:
+
+```bash
+npm run config
+```
+
+This will display three configuration options with the correct paths for your system.
+
+#### Manual Configuration
+
 Add this server to your MCP client configuration (e.g., Claude Desktop, Cline):
 
-**For stdio transport:**
+**Option 1: Using npx (Recommended - Works anywhere)**
 
 ```json
 {
   "mcpServers": {
     "image-generation": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp_build/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "tsx", "src/index.ts"],
+      "cwd": "/path/to/mcp_build",
       "env": {
         "IMAGE_API_URL": "https://your-api-url.com",
         "USER_OPENID": "your-user-openid"
@@ -135,6 +148,44 @@ Add this server to your MCP client configuration (e.g., Claude Desktop, Cline):
   }
 }
 ```
+
+**Option 2: Using built files**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+**Option 3: Using npm script**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "npm",
+      "args": ["run", "start"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+Replace `/path/to/mcp_build` with the actual path to this project directory.
 
 ## Usage
 

@@ -43,12 +43,15 @@ USER_OPENID=your-actual-user-openid
 
 添加服务器配置 (Add server configuration):
 
+**推荐方式 1: 使用 cwd (Recommended - Using cwd)**
+
 ```json
 {
   "mcpServers": {
     "image-generation": {
       "command": "node",
-      "args": ["/absolute/path/to/mcp_build/dist/index.js"],
+      "args": ["dist/index.js"],
+      "cwd": "/path/to/mcp_build",
       "env": {
         "IMAGE_API_URL": "https://your-api-url.com",
         "USER_OPENID": "your-user-openid"
@@ -58,7 +61,43 @@ USER_OPENID=your-actual-user-openid
 }
 ```
 
-**重要**: 必须使用绝对路径 (IMPORTANT: Must use absolute path)
+**推荐方式 2: 使用 npx + tsx (No build required)**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "npx",
+      "args": ["-y", "tsx", "src/index.ts"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+**推荐方式 3: 使用 npm script**
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "npm",
+      "args": ["run", "start"],
+      "cwd": "/path/to/mcp_build",
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+**注意**: 将 `/path/to/mcp_build` 替换为实际路径 (Replace with actual path)
 
 ### 4. 测试 (Test)
 
@@ -81,7 +120,27 @@ npx @modelcontextprotocol/inspector node dist/index.js
       "command": "ssh",
       "args": [
         "user@remote-server",
-        "cd /path/to/mcp_build && node dist/index.js"
+        "cd mcp_build && node dist/index.js"
+      ],
+      "env": {
+        "IMAGE_API_URL": "https://your-api-url.com",
+        "USER_OPENID": "your-user-openid"
+      }
+    }
+  }
+}
+```
+
+或者使用 npm script:
+
+```json
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "ssh",
+      "args": [
+        "user@remote-server",
+        "cd mcp_build && npm run start"
       ],
       "env": {
         "IMAGE_API_URL": "https://your-api-url.com",

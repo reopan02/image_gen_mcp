@@ -7,6 +7,13 @@
       "sourceType": "well-known",
       "computedHash": "826e46adf81e1372282e205c34e1a2ee876e72148007726e4a2512599d2fef7b",
       "wellKnownDigest": "sha256:5a904ea67e691bc7454cc2a631f24a52f3a95f397d76862cdfc6a9370d79363d"
+    },
+    "skill-creator": {
+      "source": "modelscope.cn",
+      "sourceUrl": "https://modelscope.cn/skills/@anthropics/skill-creator",
+      "sourceType": "well-known",
+      "computedHash": "b122f4d1e91aa1d83027e050b5b37c3156203ee85458d7b1360bc48167c9e02a",
+      "wellKnownDigest": "sha256:887b2027e7eeb09e4e6bcc48f2a0f7f76adc8033462139260a77c6d39799b779"
     }
   }
 }
