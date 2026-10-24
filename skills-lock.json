@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "mcp-builder": {
+      "source": "modelscope.cn",
+      "sourceUrl": "https://modelscope.cn/skills/aizhangsan/mcp-builder",
+      "sourceType": "well-known",
+      "computedHash": "826e46adf81e1372282e205c34e1a2ee876e72148007726e4a2512599d2fef7b",
+      "wellKnownDigest": "sha256:5a904ea67e691bc7454cc2a631f24a52f3a95f397d76862cdfc6a9370d79363d"
+    }
+  }
+}
