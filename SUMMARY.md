@@ -6,6 +6,12 @@
 
 Built a complete MCP (Model Context Protocol) server based on the image generation code in `/Users/reo/new2`.
 
+**最新更新 (Latest Update):**
+- ✅ `IMAGE_API_URL` 改为**可选环境变量**，有默认值 `https://api.example.com`
+- ✅ 只有 `USER_OPENID` 是必填的
+- ✅ 创建了魔搭部署配置文件 `modelscope-mcp-config.json`
+- ✅ 添加了魔搭部署指南 `MODELSCOPE_DEPLOYMENT.md`
+
 ## 文件结构 (File Structure)
 
 ```
@@ -21,8 +27,17 @@ mcp_build/
 ├── .gitignore           # Git 忽略文件
 ├── README.md            # 项目文档
 ├── DEPLOYMENT.md        # 部署指南（中英文）
+├── MODELSCOPE_DEPLOYMENT.md  # 魔搭部署指南 🆕
+├── modelscope-mcp-config.json # 魔搭配置文件 🆕
 └── test-structure.js    # 结构测试脚本
 ```
+
+## 环境变量 (Environment Variables)
+
+| 变量名 | 必填 | 默认值 | 说明 |
+|--------|------|--------|------|
+| `USER_OPENID` | ✅ **是** | - | 用户认证令牌 |
+| `IMAGE_API_URL` | ❌ 否 | `https://api.example.com` | API 地址（可选） |
 
 ## 实现的工具 (Implemented Tools)
 

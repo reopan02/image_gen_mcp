@@ -1,0 +1,84 @@
+{
+  "name": "image-generation-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for image generation API with support for create, edit, status check, and task management",
+  "author": "Your Name",
+  "repository": "https://github.com/your-username/image-generation-mcp",
+  "mcp": {
+    "server_type": "stdio",
+    "command": "node",
+    "args": ["dist/index.js"],
+    "environment_variables": [
+      {
+        "name": "USER_OPENID",
+        "description": "用户认证令牌 (User authentication token)",
+        "required": true,
+        "type": "string",
+        "default": ""
+      },
+      {
+        "name": "IMAGE_API_URL",
+        "description": "图像生成 API 地址 (Image generation API base URL)",
+        "required": false,
+        "type": "string",
+        "default": "https://api.example.com"
+      }
+    ],
+    "tools": [
+      {
+        "name": "image_gen_create",
+        "description": "生成新的图像 (Create a new image generation task)",
+        "category": "image_generation"
+      },
+      {
+        "name": "image_gen_edit",
+        "description": "基于参考图编辑生成图像 (Edit and generate images based on reference images)",
+        "category": "image_generation"
+      },
+      {
+        "name": "image_gen_status",
+        "description": "检查任务状态 (Check the status of an image generation task)",
+        "category": "task_management"
+      },
+      {
+        "name": "image_gen_list",
+        "description": "列出所有任务 (List all image generation tasks with pagination)",
+        "category": "task_management"
+      },
+      {
+        "name": "image_gen_detail",
+        "description": "获取任务详情 (Get detailed information about a specific task)",
+        "category": "task_management"
+      },
+      {
+        "name": "image_gen_delete",
+        "description": "删除任务 (Delete one or more image generation tasks)",
+        "category": "task_management"
+      },
+      {
+        "name": "image_gen_cancel",
+        "description": "取消运行中的任务 (Cancel a running image generation task)",
+        "category": "task_management"
+      },
+      {
+        "name": "image_gen_config",
+        "description": "获取配置信息 (Get configuration information)",
+        "category": "system"
+      }
+    ],
+    "setup_instructions": {
+      "zh": [
+        "1. 填写必需的环境变量 USER_OPENID",
+        "2. 可选：配置 IMAGE_API_URL（如不配置则使用默认值）",
+        "3. 服务器将自动构建并启动"
+      ],
+      "en": [
+        "1. Fill in the required environment variable USER_OPENID",
+        "2. Optional: Configure IMAGE_API_URL (uses default if not configured)",
+        "3. The server will automatically build and start"
+      ]
+    },
+    "build_command": "npm install && npm run build",
+    "node_version": ">=18.0.0"
+  }
+}

@@ -8,13 +8,9 @@ import type { TaskInfo } from './types.js';
 // Load environment variables
 dotenv.config();
 
-// Validate environment variables
-const API_URL = process.env.IMAGE_API_URL;
+// Get environment variables with defaults
+const API_URL = process.env.IMAGE_API_URL || 'https://api.example.com';
 const USER_OPENID = process.env.USER_OPENID;
-
-if (!API_URL) {
-  throw new Error('IMAGE_API_URL environment variable is required');
-}
 
 if (!USER_OPENID) {
   throw new Error('USER_OPENID environment variable is required');

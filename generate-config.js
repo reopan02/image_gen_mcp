@@ -46,6 +46,13 @@ console.log('Configuration Options:');
 console.log('═'.repeat(62));
 console.log();
 
+console.log('💡 Environment Variables:');
+console.log('   ✅ USER_OPENID - Required (必填)');
+console.log('   ❌ IMAGE_API_URL - Optional (可选, 默认: https://api.example.com)');
+console.log();
+console.log('═'.repeat(62));
+console.log();
+
 // Option 1: npm script
 console.log('🔸 Option 1: Using npm script (Recommended)');
 console.log();
@@ -56,8 +63,8 @@ console.log(JSON.stringify({
       args: ["run", "start"],
       cwd: projectDir,
       env: {
-        IMAGE_API_URL: "https://your-api-url.com",
-        USER_OPENID: "your-user-openid"
+        USER_OPENID: "your-user-openid",
+        IMAGE_API_URL: "https://your-api-url.com"  // Optional
       }
     }
   }
@@ -65,6 +72,7 @@ console.log(JSON.stringify({
 console.log();
 console.log('   ✅ No build required if .env is configured');
 console.log('   ✅ Portable across environments');
+console.log('   💡 IMAGE_API_URL is optional in env (可省略)');
 console.log();
 
 // Option 2: node with cwd
@@ -79,8 +87,8 @@ console.log(JSON.stringify({
       args: ["dist/index.js"],
       cwd: projectDir,
       env: {
-        IMAGE_API_URL: "https://your-api-url.com",
-        USER_OPENID: "your-user-openid"
+        USER_OPENID: "your-user-openid",
+        IMAGE_API_URL: "https://your-api-url.com"  // Optional
       }
     }
   }
@@ -88,6 +96,7 @@ console.log(JSON.stringify({
 console.log();
 console.log('   ✅ Faster startup');
 console.log('   ⚠️  Requires: npm run build');
+console.log('   💡 IMAGE_API_URL is optional (可省略)');
 console.log();
 
 // Option 3: npx tsx
@@ -102,8 +111,8 @@ console.log(JSON.stringify({
       args: ["-y", "tsx", "src/index.ts"],
       cwd: projectDir,
       env: {
-        IMAGE_API_URL: "https://your-api-url.com",
-        USER_OPENID: "your-user-openid"
+        USER_OPENID: "your-user-openid",
+        IMAGE_API_URL: "https://your-api-url.com"  // Optional
       }
     }
   }
@@ -111,6 +120,7 @@ console.log(JSON.stringify({
 console.log();
 console.log('   ✅ No build required');
 console.log('   ⚠️  Slower startup (TypeScript compilation)');
+console.log('   💡 IMAGE_API_URL is optional (可省略)');
 console.log();
 
 console.log('═'.repeat(62));

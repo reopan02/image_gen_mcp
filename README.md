@@ -104,16 +104,21 @@ npm run build
 
 4. Create a `.env` file based on `.env.example`:
 ```env
-IMAGE_API_URL=https://your-api-url.com
+# Required (必填)
 USER_OPENID=your-user-openid
+
+# Optional (可选 - 有默认值)
+IMAGE_API_URL=https://your-api-url.com
 ```
 
 ## Configuration
 
 ### Environment Variables
 
-- `IMAGE_API_URL`: The base URL for the image generation API
-- `USER_OPENID`: Your user authentication token
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `USER_OPENID` | ✅ Yes | - | Your user authentication token (必填：用户认证令牌) |
+| `IMAGE_API_URL` | ❌ No | `https://api.example.com` | The base URL for the image generation API (可选：API 地址) |
 
 ### MCP Client Configuration
 
